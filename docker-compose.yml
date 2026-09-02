@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres:16
+    container_name: jobi_db
+    env_file:
+      - .env.docker
+    ports:
+      - "5432:5432"
+    volumes:
+      - jobi_pgdata:/var/lib/postgresql/data
+
+  api:
+    build: .
+    container_name: jobi_api
+    depends_on:
+      - db
+    env_file:
+      - .env.docker
+    ports:
+      - "8000:8000"
+
+volumes:
+  jobi_pgdata:
