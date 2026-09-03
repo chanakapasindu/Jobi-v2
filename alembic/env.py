@@ -8,6 +8,7 @@ from app.db.session import Base
 # IMPORTANT: import models so Base.metadata knows about them
 from app.models.user import User  # noqa: F401
 from app.models.job import Job    # noqa: F401
+from app.models.user_profile import UserProfile  # noqa: F401
 
 config = context.config
 

@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 from app.api.v1.auth import router as auth_router
 from app.api.v1.jobs import router as jobs_router
+from app.api.v1.user_profile import router as user_profile_router
 
 api_router = APIRouter()
 
@@ -10,3 +11,4 @@ def health_check():
 
 api_router.include_router(auth_router, prefix="/auth", tags=["Auth"])
 api_router.include_router(jobs_router, tags=["Jobs"])
+api_router.include_router(user_profile_router, tags=["User Profile"])
